@@ -16,7 +16,6 @@ let tna;
 
 //Inicio la variables pidiendo los datos por PROMPT.
 //Controlo los datos ingresados. Validar si estan dentro de los parametros del simulador.
-
 monto = parseInt(prompt("Por favor ingrese el monto a solicitar."));
 while (monto <= 0) {
     monto = parseInt(prompt("Por favor ingrese un monto mayor a 0 (cero)."));
