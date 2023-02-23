@@ -1,11 +1,3 @@
-//Consigna:
-//---------
-//Crear un algoritmo con un condicional.
-//Crear un algoritmo utilizando un ciclo.
-//Armar un simulador interactivo, la estructura final de tu proyecto integrador.
-//"Calcular pagos en cuotas sobre un monto determinado."
-//----------------------------------------------------------------------------------------------
-
 //Declaro constantes y variables GLOBALES del simulador.
 const iva = 0.21;//impuesto valor agregado, se imputa sobre los intereses de cada cuota
 const pmin = 12; //es el plazo minimo a calcular el credito
@@ -22,7 +14,7 @@ while (monto <= 0) {
 }
 
 plazo = parseInt(prompt("Por favor ingrese el plazo en meses.(12 min.-72 máx.)."));
-while ((plazo < 12) || (plazo > 72)){ 
+while ((plazo < pmin) || (plazo > pmax)){ 
     plazo = parseInt(prompt("Por favor ingrese el plazo en meses.(12 min.-72 máx.)."));
 }    
 
@@ -36,15 +28,12 @@ console.log("a devolver en un período de " + plazo + " meses");
 console.log("con una tasa del " + tna + " %.");
 console.log("------------------------------------------");
 
-//Invoco la funcion
-calcularPagos(monto,plazo,tna);
-
 //------------------------------------------------------------------------
-//Armo la funcion
-function calcularPagos(monto,plazo,tna){
-    //Calculo la tasa mensual
+//Declaro la funcion
+const calcularPagos = (monto,plazo,tna)=>{
+    //Calculo la tasa mensual - declaro e inicio la constante de tasa mensual
     const tMensual = tna /100 /12;
-    //Calculo la cuota pura a descomponer entre capital/interes
+    //Calculo la cuota pura a descomponer entre capital/interes con la constante cuotaPura
     const cuotaPura = monto * (tMensual * Math.pow(1 + tMensual, plazo)) / (Math.pow(1 + tMensual, plazo) - 1);
     //variables locales que uso en la funcion
     let saldoDeuda;
@@ -78,3 +67,6 @@ function calcularPagos(monto,plazo,tna){
         console.log("------------------------------------------");
     }
 }
+
+//Invoco la funcion
+calcularPagos(monto,plazo,tna);
