@@ -43,7 +43,8 @@ const calcularPagos = (monto,plazo,tna)=>{
     // Calculo los pagos mensuales desde el mes 1 al seleccionado con un bucle.
     for (let i = 1; i <= plazo; i++) {
         
-        //segun investigue, para calcular la primera cuota, el Saldo de Deuda es el equivalente al Monto solicitado como en el simulador del ICBC y del BNA
+        //segun investigue, para calcular la primera cuota, el Saldo de Deuda es el equivalente al Monto solicitado
+        //como en el simulador del banco ICBC y del BNA online.
         if (i === 1) {
             saldoDeuda = monto;
         }else{
